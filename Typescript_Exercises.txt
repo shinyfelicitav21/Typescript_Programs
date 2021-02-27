@@ -1,0 +1,140 @@
+
+//1.Car program
+
+class car{
+    ccolor: string;
+    enginecap: number;
+    nfcylinders: number;
+    constructor(ccolor:string, enginecap: number, nfcylinders: number){
+        this.ccolor=ccolor;
+        this.enginecap=enginecap;
+        this.nfcylinders=nfcylinders;
+    }
+    StartCar(){
+        console.log("Car has been started..");
+    }
+   StopCar(){ 
+        console.log("Car has been stopped!");
+   }
+   AccelerateCar(){ 
+            console.log("Accelerate your car");
+   }
+  OpenCarLock(){ 
+            console.log("Car lock is opened..");
+  }
+    CloseCarLock(){ 
+            console.log("Car lock is closed");
+    
+    let c:car=new car("BLACK",2000,3);
+    c.StartCar();
+    c.StopCar();
+    c.AccelerateCar();
+    c. OpenCarLock();
+    c.CloseCarLock();
+}
+}
+
+ //2. Surface area calculation
+
+class areacal{
+    
+    public square(x:any){
+        var res:any=x*x;
+        console.log("AREA OF SQAURE:"+res.toFixed(2));
+    }
+    public  rectangle(a:any,b:any,c:any){
+        var res:any=2*(a*b + b*c + a*c);
+        console.log("AREA OF RECTANGLE:"+res.toFixed(2));
+    }
+    public triangle(b:any,h:any,s1:any,s2:any,s3:any,H:any){
+         var res:any=b*h+(s1+s2+s3)*H;
+          console.log("SURFACE AREA OF TRIANGLE:"+res.toFixed(2));
+      }
+}
+let obj:areacal= new areacal();
+console.log("AREA CALCULATION");
+let res1=obj.square(4.5);
+console.log(res1);
+let res2=obj.rectangle(7.3,6.5,7.5);
+console.log(res2);
+let res3=obj.triangle(45,45.6,30,30,30,54);
+console.log(res3);
+
+//3.Enum values
+
+num Weekdays {  
+    Monday = 1,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday,
+    Sunday
+  }
+   const today = 5;  
+   console.log(Weekdays[today]);
+
+
+//4.Functional parameters
+
+/FUNCTION WITH DEFAULT PARAMETER
+    console.log("FUNCTION WITH DEFAULT PARAMETER:");
+    function defaultparams(firstname: string, lastname: string = "Smith") : string {
+    return lastname + ' ' + firstname + '!';
+     }
+
+console.log(defaultparams('William')); 
+console.log(defaultparams('Davis')); 
+console.log(defaultparams('Brown', 'Welcome'));
+
+    //FUNCTION WITH OPTIONAL PARAMETER
+    console.log("FUNCTION WITH OPTIONAL PARAMETER:");
+function optional(firstname: string, lastname?: string) : string {
+    return lastname + ' ' + firstname + '!';
+     }
+
+console.log(optional('Hello','William')); 
+console.log(optional('name')); 
+console.log(optional('Hello','Brown'));
+
+    //FUNCTION WITH REST PARAMETER
+    console.log("FUNCTION WITH REST PARAMETER:");
+function rest(firstname: string, ...lastname: string[]) {
+    return firstname + " " + lastname.join(", ") + "!";
+}
+console.log(rest("Hello", "William", "Smith")); 
+console.log(rest("Hello"));
+console.log(optional('Hello','Brown'));
+
+unction sum(x: number, y: number )
+{
+    return x + y;    
+}
+var add: number = sum(20,20); 
+//var str: string = sum(20,20); 
+ 
+//5.Tuple 
+
+console.log("ITERATE,MANIPULATE AND PRINT TUPLE ELEMENTS");
+var tuple = ["Milk", "Soap", 32,92.4];
+
+// push element into the tuple
+tuple.push("Cookies", "Bag", 85.22222);
+tuple.push("Bread", "Book", 2);
+for (var i:number = 0; i < tuple.length; i++) {
+console.log("TUPLE ELEMENT: " +tuple[i]);
+ }
+
+console.log("POPPED ELEMENT : " +tuple.pop() );
+console.log("TUPLE ELEMENTS AFTER SPLICED: " +tuple.splice(2));
+
+//6.Inferred typing
+
+unction sum(x: number, y: number )
+{
+    return x + y;    
+}
+var add: number = sum(20,20); 
+//var str: string = sum(20,20); 
+
+
