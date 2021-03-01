@@ -137,4 +137,194 @@ unction sum(x: number, y: number )
 var add: number = sum(20,20); 
 //var str: string = sum(20,20); 
 
+//7.Abstract Car
+
+abstract class AbstractCar{
+    cname: string;
+    ccolor: string;
+    enginecap: number;
+    nfcylinders: number;
+    constructor(cname: string,ccolor:string, enginecap: number, nfcylinders: number){
+        this.cname=cname;
+        this.ccolor=ccolor;
+        this.enginecap=enginecap;
+        this.nfcylinders=nfcylinders;
+    }
+    abstract stopCar();
+    abstract startCar();
+}
+class SUV extends AbstractCar{
+    cname: string;
+    ccolor: string;
+    enginecap: number;
+    nfcylinders: number;
+    manufacturer:string;
+    price:number;
+
+    constructor(cname: string,ccolor:string, enginecap:number,nfcylinders:number,manufacturer:string,price:number){
+        super(cname,ccolor,enginecap,nfcylinders);
+        this.manufacturer=manufacturer;
+        this.price=price;
+    }
+    startCar(){
+        console.log(this.cname + " is ready to start..");
+    }
+    stopCar(){
+        console.log(this.ccolor + " is halted!");
+    }
+    dis(){
+        console.log("Car name : " +this.cname);
+        console.log("Car color : " +this.ccolor);
+        console.log("Engine capacity : " +this.enginecap);
+        console.log("No.of.cylinders : " +this.nfcylinders);
+        console.log("Manufacturer : " +this.manufacturer);
+        console.log("Price : "+this.price);
+    }
+}
+
+   
+        class HatchBack extends AbstractCar {
+    
+            cname: string;
+            ccolor: string;
+            enginecap: number;
+            nfcylinders: number;
+            manufacturer:string;
+            price:number;
+        
+            constructor(cname: string,ccolor:string, enginecap:number,nfcylinders:number,manufacturer:string,price:number){
+                super(cname,ccolor,enginecap,nfcylinders);
+                this.manufacturer=manufacturer;
+                this.price=price;
+            }
+            startCar(){
+                console.log(this.cname + " is ready to start..");
+            }
+            stopCar(){
+                console.log(this.ccolor + " is halted!");
+            }
+            dis(){
+                console.log("Car name : " +this.cname);
+                console.log("Car color : " +this.ccolor);
+                console.log("Engine capacity : " +this.enginecap);
+                console.log("No.of.cylinders : " +this.nfcylinders);
+                console.log("Manufacturer : " +this.manufacturer);
+                console.log("Price : "+this.price);
+            }}
+        
+    
+    class Sedan extends AbstractCar {
+        cname: string;
+        ccolor: string;
+        enginecap: number;
+        nfcylinders: number;
+        manufacturer:string;
+        price:number;
+    
+        constructor(cname: string,ccolor:string, enginecap:number,nfcylinders:number,manufacturer:string,price:number){
+            super(cname,ccolor,enginecap,nfcylinders);
+            this.manufacturer=manufacturer;
+            this.price=price;
+        }
+        startCar(){
+            console.log(this.cname + " is ready to start..");
+        }
+        stopCar(){
+            console.log(this.ccolor + " is halted!");
+        }
+        dis(){
+            console.log("Car name : " +this.cname);
+            console.log("Car color : " +this.ccolor);
+            console.log("Engine capacity : " +this.enginecap);
+            console.log("No.of.cylinders : " +this.nfcylinders);
+            console.log("Manufacturer : " +this.manufacturer);
+            console.log("Price : "+this.price);
+        }
+    }
+    let suv:SUV=new SUV("Baleno","Blue",96,3,"Hyundai",8.5);
+console.log("SUV CAR DETAILS:");
+suv.dis();
+suv.startCar();
+suv.stopCar();
+console.log();
+let hatch:HatchBack=new HatchBack("Swift","Silver",98,2,"Suzuki",5.73);
+console.log("HATCHBACK CAR DETAILS:");
+hatch.dis();
+hatch.startCar();
+hatch.stopCar();
+let sedan:Sedan=new Sedan("Audi","Black",100,5,"Volkswagen ",10.25);
+console.log("SEDAN CAR DETAILS:");
+sedan.dis();
+sedan.startCar();
+sedan.stopCar();
+
+//8.Duck Type
+
+class Sparrow {
+   color = "brown";
+}
+class Parrot { 
+    color = "green";
+
+}
+class Duck {
+    color = "white";
+    swim(){
+        console.log("Going for a dip!");
+    } 
+}
+var parrot: Parrot = new Sparrow(); 
+var sparrow: Sparrow = new Parrot();
+var parrotTwo: Parrot = new Duck();
+
+ 
+console.log("Parrot color: "+parrot.   color);
+console.log("Sparrow color: "+sparrow.   color);
+console.log("Parrot color: "+parrotTwo.   color);
+
+//9.PaymentInterface
+
+interface PaymentManager{
+    doPayment(paymentcreds:number,paymentMode:string):string;
+    getPaymentStatus(refId: string):string;
+}
+class UPIPaymentImpl implements PaymentManager{
+    public doPayment(paymentcreds:number,paymentMode:string):string
+    {
+        return `Payment of Rs ${paymentcreds} in ${paymentMode} is in progress...`;
+    }
+    public getPaymentStatus(refId: string): string {
+       return `Payment done successfully for the reference Id: ${refId} `;
+    }
+}
+class CreditCardPaymentImpl implements PaymentManager{
+    doPayment(paymentcreds:number,paymentMode:string):string{
+    return `Payment of Rs ${paymentcreds} in ${paymentMode} is in progress!!`;
+    }
+    getPaymentStatus(refId: string): string {
+        return `Payment done successfully for the reference Id: ${refId} `;
+    }
+}
+
+let upi:UPIPaymentImpl=new UPIPaymentImpl();
+console.log(upi.doPayment(10000,'PhonePay'));
+console.log(upi.getPaymentStatus('123456789'));
+let upiobj:CreditCardPaymentImpl=new CreditCardPaymentImpl();
+console.log(upiobj.doPayment(20000,'Gpay'));
+console.log(upiobj.getPaymentStatus('58794651'));
+
+//10.Union datatype
+
+let value:(number|String);
+value="Shiny";
+console.log(value);
+
+var ud:(String|{});
+let res;
+ ud=res=function add(a:number,b:number):number
+ {
+     return a+b;
+ }
+console.log(res(2,3));
+
 
